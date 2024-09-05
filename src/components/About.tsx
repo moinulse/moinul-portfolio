@@ -12,7 +12,7 @@ export default function About() {
     >
       <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">About Me</h2>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-        I'm a passionate Full Stack developer with 3 years of experience, specializing in NestJS, React, Next.js, and TypeScript. Currently pursuing a PG Diploma in Software Quality Assurance and Testing, I'm dedicated to creating efficient, scalable, and high-quality software solutions.
+        I&apos;m a passionate Full Stack developer with 3 years of experience, specializing in NestJS, React, Next.js, and TypeScript. Currently pursuing a PG Diploma in Software Quality Assurance and Testing, I&apos;m dedicated to creating efficient, scalable, and high-quality software solutions.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <SkillCard 
