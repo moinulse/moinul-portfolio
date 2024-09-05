@@ -9,10 +9,18 @@ export default function Home() {
     <main className="flex flex-col items-center w-full min-h-screen bg-gray-50">
       <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         <Header />
-        <About />
-        <Skills />
-        <Experience />
-        <Education />
+        <section>
+          <About />
+        </section>
+        <section> 
+          <Skills />
+        </section>
+        <section>
+          <Experience />
+        </section>
+        <section>
+          <Education />
+        </section>
       </div>
     </main>
   );

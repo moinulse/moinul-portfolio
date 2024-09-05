@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 
 export default function Header() {
   return (
@@ -33,13 +34,13 @@ export default function Header() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors">
-            <Github size={24} />
+          <a href="https://github.com/moinulse" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors" aria-label="Github">
+            <SiGithub size={24} color="white"/>
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors">
+          <a href="https://linkedin.com/in/moinulhaqse" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors" aria-label="LinkedIn">
             <Linkedin size={24} />
           </a>
-          <a href="mailto:your.email@example.com" className="text-white hover:text-gray-200 transition-colors">
+          <a href="mailto:moinulhaq.se@gmail.com" className="text-white hover:text-gray-200 transition-colors" aria-label="Email">
             <Mail size={24} />
           </a>
         </motion.div>
