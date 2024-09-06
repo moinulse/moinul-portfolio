@@ -1,50 +1,55 @@
 "use client"
 import { motion } from "framer-motion";
-import { Linkedin, Mail } from "lucide-react";
-import { SiGithub } from "react-icons/si";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <motion.header 
-      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16 px-4 sm:px-6 lg:px-8 rounded-lg shadow-lg"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <div className="max-w-4xl mx-auto">
-        <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          MD Moinul Haq
-        </motion.h1>
-        <motion.p 
-          className="text-xl sm:text-2xl mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-        >
-          Full Stack Developer | Software Quality Assurance
-        </motion.p>
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <motion.div 
-          className="flex space-x-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          <a href="https://github.com/moinulse" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors" aria-label="Github">
-            <SiGithub size={24} color="white"/>
-          </a>
-          <a href="https://linkedin.com/in/moinulhaqse" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors" aria-label="LinkedIn">
-            <Linkedin size={24} />
-          </a>
-          <a href="mailto:moinulhaq.se@gmail.com" className="text-white hover:text-gray-200 transition-colors" aria-label="Email">
-            <Mail size={24} />
-          </a>
+          <Link href="/" className="text-2xl font-bold text-indigo-600">moinulhaq</Link>
         </motion.div>
-      </div>
+        <ul className="flex space-x-6">
+          {["About", "Skills", "Projects", "Experience", "Education"].map((item) => (
+            <motion.li key={item} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+              <Link 
+                href={`#${item.toLowerCase()}`} 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const projectsSection = document.getElementById(item.toLowerCase());
+                  if (projectsSection) {
+                    projectsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="text-gray-700 hover:text-indigo-600 transition-colors"
+              >
+                {item}
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
+      </nav>
     </motion.header>
   );
 }

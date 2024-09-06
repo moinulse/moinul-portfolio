@@ -4,8 +4,8 @@ import { Code, Server, TestTube } from "lucide-react";
 
 export default function About() {
   return (
-    <motion.section 
-      className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mt-8"
+    <motion.section
+      className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
