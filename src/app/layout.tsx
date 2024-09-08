@@ -16,6 +16,21 @@ export const metadata: Metadata = {
     siteName: "MD Moinul Haq Portfolio",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Moinul Haq Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Moinul Haq | Full Stack Developer & SQA Specialist",
+    description: "Portfolio of Moinul Haq, showcasing skills in Full Stack Development and Software Quality Assurance.",
+    creator: "@moinul_19",
+    images: ["/twitter.png"],
   },
 };
 export default function RootLayout({
