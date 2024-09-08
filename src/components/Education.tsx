@@ -99,14 +99,14 @@ export default function Education() {
         Education
       </motion.h2>
       <div className="relative">
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-indigo-200 transform -translate-x-1/2"></div>
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-indigo-200 transform -translate-x-1/2 hidden md:block"></div>
         <div className="space-y-12">
           {education.map((edu, index) => (
             <EducationItem key={index} edu={edu} index={index} />
           ))}
         </div>
         <motion.div 
-          className="absolute left-1/2 bottom-0 w-6 h-6 bg-indigo-500 rounded-full transform -translate-x-1/2 translate-y-3 flex items-center justify-center"
+          className="absolute left-1/2 bottom-0 w-6 h-6 bg-indigo-500 rounded-full transform -translate-x-1/2 translate-y-3 items-center justify-center hidden md:flex"
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -130,20 +130,20 @@ function EducationItem({ edu, index }: { edu: any, index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
     >
-      <div className={`md:w-1/2 ${isEven ? 'md:pl-8' : 'md:pr-8'} pb-8 md:pb-0 ${isEven ? 'md:text-left' : 'md:text-right'}`}>
-        <div className={`flex items-center ${isEven ? 'justify-start' : 'justify-end'} mb-2`}>
+      <div className={`w-full md:w-1/2 ${isEven ? 'md:pl-8' : 'md:pr-8'} pb-8 md:pb-0 text-center md:text-left ${isEven ? 'md:text-left' : 'md:text-right'}`}>
+        <div className={`flex items-center justify-center md:justify-start ${isEven ? 'md:justify-start' : 'md:justify-end'} mb-2`}>
           <h4 className="text-xl font-medium text-indigo-600">{edu.institution}</h4>
-          <span className={`${isEven ? 'ml-2' : 'mr-2 ml-2'}`}>{edu.flag}</span>
+          <span className="ml-2">{edu.flag}</span>
         </div>
         <h3 className="text-2xl font-semibold text-gray-800 mb-2">{edu.degree}</h3>
         {edu.details && <h3 className="text-lg text-gray-700 mb-2">{edu.details}</h3>}
-        <div className={`flex items-center ${isEven ? 'justify-start' : 'justify-end'} text-gray-500`}>
-          <Calendar className={isEven ? 'mr-2' : 'ml-2 order-2'} size={16} />
+        <div className={`flex items-center justify-center md:justify-start ${isEven ? 'md:justify-start' : 'md:justify-end'} text-gray-500`}>
+          <Calendar className="mr-2" size={16} />
           <span className="font-bold">{edu.period}</span>
         </div>
       </div>
-      <div className={`md:w-1/2 ${isEven ? 'md:pr-8' : 'md:pl-8'} relative`}>
-        <div className={`absolute ${isEven ? '-right-3' : '-left-3'} top-0 w-6 h-6 bg-indigo-500 rounded-full`}></div>
+      <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-8' : 'md:pl-8'} relative`}>
+        <div className={`absolute ${isEven ? '-right-3' : '-left-3'} top-0 w-6 h-6 bg-indigo-500 rounded-full hidden md:block`}></div>
         <div className="bg-white p-6 rounded-lg shadow-lg">
           {edu.achievements && edu.achievements.length > 0 && (
             <motion.div 
