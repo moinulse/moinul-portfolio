@@ -1,8 +1,8 @@
 "use client"
-import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { MotionHeader, MotionDiv, MotionUl, MotionLi, AnimatePresence } from './MotionWrapper';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +27,7 @@ export default function Header() {
   };
 
   return (
-    <motion.header 
+    <MotionHeader 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
@@ -36,15 +36,15 @@ export default function Header() {
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <motion.div 
+        <MotionDiv 
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           <Link href="/" className="text-2xl font-bold text-indigo-600">moinulhaq</Link>
-        </motion.div>
-        <ul className="hidden md:flex space-x-6">
+        </MotionDiv>
+        <MotionUl className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
-            <motion.li key={item} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+            <MotionLi key={item} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
               <Link 
                 href={`#${item.toLowerCase()}`} 
                 onClick={(e) => {
@@ -55,9 +55,9 @@ export default function Header() {
               >
                 {item}
               </Link>
-            </motion.li>
+            </MotionLi>
           ))}
-        </ul>
+        </MotionUl>
         <div className="md:hidden">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -67,16 +67,16 @@ export default function Header() {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center"
           >
-            <ul className="space-y-6 text-center">
+            <MotionUl className="space-y-6 text-center">
               {menuItems.map((item) => (
-                <motion.li
+                <MotionLi
                   key={item}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -91,12 +91,12 @@ export default function Header() {
                   >
                     {item}
                   </Link>
-                </motion.li>
+                </MotionLi>
               ))}
-            </ul>
-          </motion.div>
+            </MotionUl>
+          </MotionDiv>
         )}
       </AnimatePresence>
-    </motion.header>
+    </MotionHeader>
   );
 }
