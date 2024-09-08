@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { m } from "framer-motion";
 import RoleAnimation from "@/components/RoleAnimation";
-
+import Link from "next/link";
 
 // Google Drive PDF link
 const RESUME_PDF_URL = "https://drive.google.com/file/d/1vUZUbLpYxI2oOxilKc3oYBYC3QyoA4Cy/view";
@@ -69,16 +69,19 @@ export default function Hero() {
           >
             View My Work
           </m.button>
-          <m.a
-            href={RESUME_PDF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <m.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full font-semibold text-lg hover:bg-blue-600 hover:text-white transition duration-300 inline-block"
           >
-            Resume
-          </m.a>
+            <Link
+              href={RESUME_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full font-semibold text-lg hover:bg-blue-600 hover:text-white transition duration-300 inline-block"
+            >
+              Resume
+            </Link>
+          </m.div>
         </m.div>
       </div>
     </m.section>
@@ -86,14 +89,18 @@ export default function Hero() {
 }
 
 const SocialLink = ({ href, icon, label }: { href: string, icon: React.ReactNode, label: string }) => (
-  <m.a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-gray-600 hover:text-indigo-600 transition-colors"
+  <m.div
     whileHover={{ scale: 1.05 }}
-    aria-label={label}
+    whileTap={{ scale: 0.95 }}
   >
-    {icon}
-  </m.a>
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-600 hover:text-indigo-600 transition-colors"
+      aria-label={label}
+    >
+      {icon}
+    </Link>
+  </m.div>
 );

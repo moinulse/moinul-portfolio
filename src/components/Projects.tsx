@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // {
   //   id: 1,
@@ -68,9 +69,9 @@ export default function Projects() {
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-indigo-600">{project.category}</span>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
+                  <Link href={project.link} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
                     View Project
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
