@@ -83,7 +83,7 @@ const education: EducationType[] = [
 export default function Education() {
   return (
     <motion.section 
-      className="py-20"
+      className="py-10 shadow-lg md:px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -132,7 +132,7 @@ function EducationItem({ edu, index }: { edu: any, index: number }) {
     >
       <div className={`w-full md:w-1/2 ${isEven ? 'md:pl-8' : 'md:pr-8'} pb-8 md:pb-0 text-center md:text-left ${isEven ? 'md:text-left' : 'md:text-right'}`}>
         <div className={`flex items-center justify-center md:justify-start ${isEven ? 'md:justify-start' : 'md:justify-end'} mb-2`}>
-          <h4 className="text-xl font-medium text-indigo-600">{edu.institution}</h4>
+          <h3 className="text-xl font-medium text-indigo-600">{edu.institution}</h3>
           <span className="ml-2">{edu.flag}</span>
         </div>
         <h3 className="text-2xl font-semibold text-gray-800 mb-2">{edu.degree}</h3>

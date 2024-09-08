@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { MotionHeader, MotionDiv, MotionUl, MotionLi, AnimatePresence } from './MotionWrapper';
+import { m, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,31 +20,38 @@ export default function Header() {
 
   const handleMenuItemClick = (item: string) => {
     setIsMobileMenuOpen(false);
-    const section = document.getElementById(item.toLowerCase());
+    scrollToSection(item.toLowerCase());
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = 60;
+      const offsetPosition = section.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <MotionHeader 
+    <m.header 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      transition={{ duration: 0.3 }}
     >
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <MotionDiv 
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
+        <m.div whileHover={{ scale: 1.05 }}>
           <Link href="/" className="text-2xl font-bold text-indigo-600">moinulhaq</Link>
-        </MotionDiv>
-        <MotionUl className="hidden md:flex space-x-6">
+        </m.div>
+        <ul className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
-            <MotionLi key={item} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+            <m.li key={item} whileHover={{ y: -2 }}>
               <Link 
                 href={`#${item.toLowerCase()}`} 
                 onClick={(e) => {
@@ -55,11 +62,16 @@ export default function Header() {
               >
                 {item}
               </Link>
-            </MotionLi>
+            </m.li>
           ))}
-        </MotionUl>
+        </ul>
         <div className="md:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            name="menu-button"
+            aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -67,18 +79,18 @@ export default function Header() {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <MotionDiv
+          <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center"
           >
-            <MotionUl className="space-y-6 text-center">
+            <ul className="space-y-6 text-center">
               {menuItems.map((item) => (
-                <MotionLi
+                <m.li
                   key={item}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link 
@@ -91,12 +103,12 @@ export default function Header() {
                   >
                     {item}
                   </Link>
-                </MotionLi>
+                </m.li>
               ))}
-            </MotionUl>
-          </MotionDiv>
+            </ul>
+          </m.div>
         )}
       </AnimatePresence>
-    </MotionHeader>
+    </m.header>
   );
 }

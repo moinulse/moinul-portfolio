@@ -52,7 +52,7 @@ const experiences: Experience[] = [
 
 export default function Experience() {
   return (
-    <Card className="w-full shadow-lg rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700">
+    <Card className="w-full shadow-lg rounded-md bg-white-50">
       <CardHeader className="border-b border-gray-200 dark:border-gray-700">
         <CardTitle className="text-3xl font-bold flex items-center space-x-3 text-gray-800 dark:text-gray-200">
           <Briefcase className="text-indigo-500 dark:text-indigo-400" size={32} />

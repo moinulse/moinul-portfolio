@@ -64,6 +64,7 @@ const config: Config = {
   			'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
   			'fade-in': 'fadeIn 0.8s ease-out forwards',
   			'fade-in-delay': 'fadeIn 0.8s ease-out forwards',
+  			blink: 'blink 1s step-end infinite',
   		},
   		keyframes: {
   			fadeInDown: {
@@ -77,6 +78,10 @@ const config: Config = {
   			fadeIn: {
   				'0%': { opacity: '0' },
   				'100%': { opacity: '1' },
+  			},
+  			blink: {
+  				'0%, 100%': { opacity: '1' },
+  				'50%': { opacity: '0' },
   			},
   		},
   	}

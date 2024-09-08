@@ -1,26 +1,26 @@
 "use client"
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { frameworks, toolings, icons, IconName } from "@/lib/icons";
 
 const SkillIcon = ({ name, index }: { name: IconName; index: number }) => {
   const { icon: Icon, color } = icons[name];
   return (
-    <motion.div 
+    <m.div 
       className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
-      initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.1, rotate: 5 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.03 }}
+      viewport={{ once: true, margin: "-50px" }}
+      whileHover={{ scale: 1.05 }}
     >
       <Icon className="text-4xl mb-2" style={{ color }} />
       <span className="text-sm text-center font-medium text-gray-700">{name}</span>
-    </motion.div>
+    </m.div>
   );
 };
 
 const SkillSection = ({ title, skills }: { title: string, skills: IconName[] }) => (
-  <motion.div
+  <m.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
@@ -32,14 +32,14 @@ const SkillSection = ({ title, skills }: { title: string, skills: IconName[] }) 
         <SkillIcon key={skill} name={skill} index={index} />
       ))}
     </div>
-  </motion.div>
+  </m.div>
 );
 
 export default function Skills() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-10 md:px-4 bg-transparent shadow-lg">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <m.h2 
           className="text-4xl font-bold text-center mb-12 text-indigo-600"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,9 +47,9 @@ export default function Skills() {
           viewport={{ once: true }}
         >
           Skills & Technologies
-        </motion.h2>
+        </m.h2>
         <SkillSection title="Frameworks & Languages" skills={frameworks} />
-        <motion.div 
+        <m.div 
           className="mt-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -57,7 +57,7 @@ export default function Skills() {
           viewport={{ once: true }}
         >
           <SkillSection title="Tools & Technologies" skills={toolings} />
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
