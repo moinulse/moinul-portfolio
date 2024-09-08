@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.moinulhaq.com"),
   title: "Moinul Haq | Full Stack Developer & SQA Specialist",
   description: "Portfolio of Moinul Haq, a Full Stack Developer specializing in NestJS, React, Next.js, and TypeScript, with expertise in Software Quality Assurance.",
   keywords: "Full Stack Developer, Software Quality Assurance, NestJS, React, Next.js, TypeScript",
@@ -40,7 +42,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
