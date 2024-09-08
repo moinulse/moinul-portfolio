@@ -6,6 +6,7 @@ import Experience from "@/components/Experience";
 import Header from "@/components/Header";
 import Skills from "@/components/Skills";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -32,6 +33,11 @@ export default function Home() {
         <div className="bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full rounded-md" id="experience">
             <Experience />
+          </div>
+        </div>
+        <div className="bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full rounded-md" id="projects">
+            <Projects />
           </div>
         </div>
         <div className="bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-50 rounded-md">
