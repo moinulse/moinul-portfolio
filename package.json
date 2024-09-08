@@ -1,6 +1,6 @@
 {
   "name": "moinul-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -34,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-plugin-next-on-pages": "^1.13.2",
@@ -42,5 +43,18 @@
     "typescript": "^5",
     "vercel": "^37.1.2",
     "wrangler": "^3.72.3"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moinulse/moinul-portfolio.git"
+  },
+  "author": "MD Moinul Haq <moinulhaq.se@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moinulse/moinul-portfolio/issues"
+  },
+  "homepage": "https://www.moinulhaq.com"
 }

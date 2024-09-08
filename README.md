@@ -20,6 +20,18 @@ Visit my portfolio at [https://www.moinulhaq.com](https://www.moinulhaq.com)
 - Interactive project showcase
 - Skills and technologies section
 
+## 🚀 Deployment
+
+This portfolio is deployed using [Cloudflare Pages](https://pages.cloudflare.com/), with automatic deployments triggered by pushes to the main branch on GitHub.
+
+### Deployment Process
+
+1. Push changes to the `main` branch on GitHub.
+2. Cloudflare Pages automatically detects the push and starts a new build.
+3. The site is built using the build command specified in the Cloudflare Pages configuration.
+4. Once the build is successful, the new version is automatically deployed.
+
+
 ## 🚀 Getting Started
 
 To run this project locally:
