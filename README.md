@@ -1,68 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`c3`](https://developers.cloudflare.com/pages/get-started/c3).
+# Moinul Haq's Portfolio
 
-## Getting Started
+Welcome to the repository of my personal portfolio website. This site showcases my skills, projects, and experience as a Full Stack Developer and Software QA Specialist.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Visit my portfolio at [https://www.moinulhaq.com](https://www.moinulhaq.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Built With
 
-## Cloudflare integration
+- [Next.js](https://nextjs.org/) - React framework for production
+- [TypeScript](https://www.typescriptlang.org/) - Typed superset of JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Animation library for React
 
-Besides the `dev` script mentioned above `c3` has added a few extra scripts that allow you to integrate the application with the [Cloudflare Pages](https://pages.cloudflare.com/) environment, these are:
-  - `pages:build` to build the application for Pages using the [`@cloudflare/next-on-pages`](https://github.com/cloudflare/next-on-pages) CLI
-  - `preview` to locally preview your Pages application using the [Wrangler](https://developers.cloudflare.com/workers/wrangler/) CLI
-  - `deploy` to deploy your Pages application using the [Wrangler](https://developers.cloudflare.com/workers/wrangler/) CLI
+## 🌟 Features
 
-> __Note:__ while the `dev` script is optimal for local development you should preview your Pages application as well (periodically or before deployments) in order to make sure that it can properly work in the Pages environment (for more details see the [`@cloudflare/next-on-pages` recommended workflow](https://github.com/cloudflare/next-on-pages/blob/main/internal-packages/next-dev/README.md#recommended-development-workflow))
+- Responsive design
+- Animated UI components
+- Interactive project showcase
+- Skills and technologies section
 
-### Bindings
+## 🚀 Getting Started
 
-Cloudflare [Bindings](https://developers.cloudflare.com/pages/functions/bindings/) are what allows you to interact with resources available in the Cloudflare Platform.
+To run this project locally:
 
-You can use bindings during development, when previewing locally your application and of course in the deployed application:
+1. Clone the repository:
+   ```
+   git clone https://github.com/moinulse/portfolio.git
+   ```
 
-- To use bindings in dev mode you need to define them in the `next.config.js` file under `setupDevBindings`, this mode uses the `next-dev` `@cloudflare/next-on-pages` submodule. For more details see its [documentation](https://github.com/cloudflare/next-on-pages/blob/05b6256/internal-packages/next-dev/README.md).
+2. Navigate to the project directory:
+   ```
+   cd portfolio
+   ```
 
-- To use bindings in the preview mode you need to add them to the `pages:preview` script accordingly to the `wrangler pages dev` command. For more details see its [documentation](https://developers.cloudflare.com/workers/wrangler/commands/#dev-1) or the [Pages Bindings documentation](https://developers.cloudflare.com/pages/functions/bindings/).
+3. Install dependencies:
+   ```
+   npm install
+   ```
 
-- To use bindings in the deployed application you will need to configure them in the Cloudflare [dashboard](https://dash.cloudflare.com/). For more details see the  [Pages Bindings documentation](https://developers.cloudflare.com/pages/functions/bindings/).
+4. Run the development server:
+   ```
+   npm run dev
+   ```
 
-#### KV Example
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
-`c3` has added for you an example showing how you can use a KV binding.
+## 🤝 Contributing
 
-In order to enable the example:
-- Search for javascript/typescript lines containing the following comment:
-  ```ts
-  // KV Example:
-  ```
-  and uncomment the commented lines below it.
-- Do the same in the `wrangler.toml` file, where
-  the comment is:
-  ```
-  # KV Example:
-  ```
-- If you're using TypeScript run the `cf-typegen` script to update the `env.d.ts` file:
-  ```bash
-  npm run cf-typegen
-  # or
-  yarn cf-typegen
-  # or
-  pnpm cf-typegen
-  # or
-  bun cf-typegen
-  ```
+While this is a personal portfolio, I'm open to suggestions and improvements. Feel free to open an issue or submit a pull request.
 
-After doing this you can run the `dev` or `preview` script and visit the `/api/hello` route to see the example in action.
+## 📝 License
 
-Finally, if you also want to see the example work in the deployed application make sure to add a `MY_KV_NAMESPACE` binding to your Pages application in its [dashboard kv bindings settings section](https://dash.cloudflare.com/?to=/:account/pages/view/:pages-project/settings/functions#kv_namespace_bindings_section). After having configured it make sure to re-deploy your application.
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📞 Contact
+
+Moinul Haq - [moinulhaq.se@gmail.com](mailto:moinulhaq.se@gmail.com)
+
+LinkedIn: [https://www.linkedin.com/in/moinulhaqse](https://www.linkedin.com/in/moinulhaqse)
+
+GitHub: [https://github.com/moinulse](https://github.com/moinulse)
+
