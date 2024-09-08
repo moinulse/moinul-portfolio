@@ -11,7 +11,7 @@ import Image from "next/image";
   //   image: "/images/project1.jpg",
   //   link: "https://www.google.com"
   // },
-const projects = [];
+const projects: any[] = [];
 
 const categories = ["All", "Web", "Mobile", "Backend", "QA"];
 
