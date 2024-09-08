@@ -21,7 +21,7 @@ export default function Hero() {
           transition={{ type: 'spring', stiffness: 100, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600"
         >
-          Hi, I'm Moinul Haq
+          Hi, I&apos;m Moinul Haq
         </MotionH1>
         <MotionDiv
           className="text-xl sm:text-2xl md:text-4xl mb-8 text-gray-700"
