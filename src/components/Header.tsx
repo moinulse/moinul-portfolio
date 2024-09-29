@@ -84,7 +84,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center backdrop-blur-md"
           >
             <ul className="space-y-6 text-center">
               {menuItems.map((item) => (
@@ -106,6 +106,13 @@ export default function Header() {
                 </m.li>
               ))}
             </ul>
+            <button 
+              onClick={() => setIsMobileMenuOpen(false)} 
+              className="absolute top-4 right-4"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
           </m.div>
         )}
       </AnimatePresence>
